@@ -5,7 +5,7 @@ This is a ruby terminal program, that completes Google's Mars Rover Challenge
 The challenge details can be found here:
 `https://code.google.com/archive/p/marsrovertechchallenge/`
 
-The application was written using ruby 2.6, though should work for most ruby 2.x versions
+The application was written using ruby 2.6, although it should work for most ruby 2.x versions
 
 ## Assumptions
 
