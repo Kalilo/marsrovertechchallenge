@@ -82,7 +82,7 @@ class Position
     VALID_DIRECTIONS.sample
   end
 
-  def get_display_pos
+  def display_pos
     "#{@x} #{@y} #{@direction}"
   end
 

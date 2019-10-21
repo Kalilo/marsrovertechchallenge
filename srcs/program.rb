@@ -16,7 +16,7 @@ class Program
     print_map('Starting Map:') if @options[:map] || @options[:verbose]
     run
     print_map('Final Map:') if @options[:map] || @options[:verbose]
-    @map.rovers.each { |rover| puts rover.position.get_display_pos }
+    @map.rovers.each { |rover| puts rover.position.display_pos }
   end
 
   def run
