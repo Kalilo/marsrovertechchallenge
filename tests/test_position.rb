@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require 'minitest/autorun'
 require 'position'
 
 class PositionTest < Minitest::Test
   def test_invalid_directions
-    invalid_directions = (('A'..'Z').map { |l| l  } - Position::VALID_DIRECTIONS) + [1, nil, 'West']
+    invalid_directions = (('A'..'Z').map { |l| l } - Position::VALID_DIRECTIONS) + [1, nil, 'West']
 
     invalid_directions.each do |d|
       assert_raises { Position.new(rand_coord, rand_coord, d) }
@@ -48,8 +50,8 @@ class PositionTest < Minitest::Test
   def test_same_coords
     assert Position.new(0, 0, 'N').same_coords?(Position.new(0, 0, 'S'))
     assert Position.new(6, 2, 'W').same_coords?(Position.new(6, 2, 'N'))
-    assert !(Position.new(6, 3, 'W').same_coords?(Position.new(6, 2, 'W')))
-    assert !(Position.new(7, 2, 'W').same_coords?(Position.new(6, 2, 'S')))
+    assert !Position.new(6, 3, 'W').same_coords?(Position.new(6, 2, 'W'))
+    assert !Position.new(7, 2, 'W').same_coords?(Position.new(6, 2, 'S'))
   end
 
   def test_direction_arrows
@@ -87,8 +89,9 @@ class PositionTest < Minitest::Test
     assert Position.new(0, 0, 'N') != Position.new(0, 1, 'N')
     assert Position.new(0, 0, 'N') != Position.new(1, 0, 'N')
   end
-  
+
   private
+
   def rand_coord
     rand(-1000..1000)
   end

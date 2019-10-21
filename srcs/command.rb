@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 class Command
   attr_reader :command
 
-  VALID_COMMANDS = %W'M L R'
+  VALID_COMMANDS = %w[M L R].freeze
 
   def initialize(c)
     self.command = c
@@ -21,6 +23,7 @@ class Command
 
   def command=(c)
     raise 'invalid command' unless VALID_COMMANDS.include?(c)
+
     @command = c
   end
 end

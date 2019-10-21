@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rover'
 
 class Map
@@ -10,7 +12,7 @@ class Map
     @width = width
 
     @map = Array.new(width) { Array.new(height) }
-    @rovers = Array.new
+    @rovers = []
   end
 
   def add_rover(rover)
@@ -28,13 +30,13 @@ class Map
       str += div
       width.times do |x|
         e = @map[x][y]
-        if e.is_a? Rover
-          str += "|R #{e.position.direction_arrow}"
-        elsif e.nil?
-          str += '|   '
-        else
-          str += '| ? '
-        end
+        str += if e.is_a? Rover
+                 "|R #{e.position.direction_arrow}"
+               elsif e.nil?
+                 '|   '
+               else
+                 '| ? '
+               end
       end
       str += "|\n"
     end
@@ -68,7 +70,7 @@ class Map
 
   def validate_position(pos)
     raise "not a position: #{pos}" unless pos.is_a? Position
-    raise "position #{pos} out of bounds" unless (0 <= pos.x && pos.x < @width) && (0 <= pos.y && pos.y < @height)
+    raise "position #{pos} out of bounds" unless (pos.x >= 0 && pos.x < @width) && (pos.y >= 0 && pos.y < @height)
     raise "attempting to add element ontop of exising element at position: #{pos}" unless @map[pos.x][pos.y].nil?
   end
 end

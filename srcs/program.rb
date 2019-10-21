@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'read_file_input'
 require 'map'
 
@@ -9,7 +11,7 @@ class Program
     @options = options
   end
 
-  def run_file(file = @options[:file])
+  def run_file(_file = @options[:file])
     load_file
     print_map('Starting Map:') if @options[:map] || @options[:verbose]
     run
@@ -21,11 +23,12 @@ class Program
     @map.rovers.each do |rover|
       loop do
         break unless rover.has_next_command?
+
         begin
           puts "running #{rover.commands.first} on rover #{rover}" if @options[:verbose]
           map.execute_rover_command(rover)
           print_map if @options[:verbose] && !last_command?(rover)
-        rescue => exception
+        rescue StandardError => exception
           puts "error processing command: #{exception}"
         end
       end

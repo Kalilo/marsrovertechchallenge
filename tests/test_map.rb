@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'minitest/autorun'
 require 'map'
 
@@ -30,7 +32,7 @@ class MapTest < Minitest::Test
     map.add_rover(r2)
     map.execute_rover_command(r1)
 
-    assert map.map[0][0] == nil
+    assert map.map[0][0].nil?
     assert map.map[1][0] == r1
 
     map.execute_rover_command(r1)

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'position'
 require 'command'
 
@@ -14,14 +16,14 @@ class Rover
     raise 'no command found to execute' if command.nil?
 
     case command.command
-      when 'L'
-        @position.turn_left
-      when 'R'
-        @position.turn_right
-      when 'M'
-        @position.move
-      else
-        raise "invalid command: #{command}"
+    when 'L'
+      @position.turn_left
+    when 'R'
+      @position.turn_right
+    when 'M'
+      @position.move
+    else
+      raise "invalid command: #{command}"
     end
   end
 

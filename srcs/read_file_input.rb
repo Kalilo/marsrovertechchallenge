@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rover'
 require 'position'
 require 'command'
@@ -31,7 +33,11 @@ class ReadFileInput
   end
 
   def read_map_size
-    size = @file.readline.chomp.split(' ').map { |k| k.to_i } rescue invalid_input_file
+    size = begin
+             @file.readline.chomp.split(' ').map(&:to_i)
+           rescue StandardError
+             invalid_input_file
+           end
     invalid_input_file if size.size != 2
     size
   end
@@ -40,6 +46,7 @@ class ReadFileInput
     rovers = []
     loop do
       break if eof?
+
       rovers.push(Rover.new(read_position, read_commands))
     end
     rovers
@@ -61,5 +68,4 @@ class ReadFileInput
   def invalid_input_file
     raise 'invalid input file'
   end
-  
 end

@@ -1,8 +1,9 @@
+# frozen_string_literal: true
+
 require 'minitest/autorun'
 require 'rover'
 
 class RoverTest < Minitest::Test
-
   def test_initialize
     assert_kind_of Rover, Rover.new
     assert_kind_of Rover, Rover.new(Position.rand_position)
@@ -30,6 +31,6 @@ class RoverTest < Minitest::Test
     assert rover.execute_command == Position.new(0, 0, 'W')
     assert rover.has_next_command?
     assert rover.execute_command == Position.new(0, 0, 'E')
-    assert !(rover.has_next_command?)
+    assert !rover.has_next_command?
   end
 end

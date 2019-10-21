@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 class Position
   attr_reader :x, :y, :direction
 
-  VALID_DIRECTIONS = %W'N S E W'
+  VALID_DIRECTIONS = %w[N S E W].freeze
 
   def initialize(x, y, direction)
     validate_coordinate(x)
@@ -14,40 +16,40 @@ class Position
 
   def move(units = 1)
     case @direction
-      when 'N'
-        Position.new(x, y + units, direction)
-      when 'E'
-        Position.new(x + units, y, direction)
-      when 'S'
-        Position.new(x, y - units, direction)
-      when 'W'
-        Position.new(x - units, y, direction)
+    when 'N'
+      Position.new(x, y + units, direction)
+    when 'E'
+      Position.new(x + units, y, direction)
+    when 'S'
+      Position.new(x, y - units, direction)
+    when 'W'
+      Position.new(x - units, y, direction)
     end
   end
 
   def turn_left
     case @direction
-      when 'N'
-        Position.new(x, y, 'W')
-      when 'E'
-        Position.new(x, y, 'N')
-      when 'S'
-        Position.new(x, y, 'E')
-      when 'W'
-        Position.new(x, y, 'S')
+    when 'N'
+      Position.new(x, y, 'W')
+    when 'E'
+      Position.new(x, y, 'N')
+    when 'S'
+      Position.new(x, y, 'E')
+    when 'W'
+      Position.new(x, y, 'S')
     end
   end
 
   def turn_right
     case @direction
-      when 'N'
-        Position.new(x, y, 'E')
-      when 'E'
-        Position.new(x, y, 'S')
-      when 'S'
-        Position.new(x, y, 'W')
-      when 'W'
-        Position.new(x, y, 'N')
+    when 'N'
+      Position.new(x, y, 'E')
+    when 'E'
+      Position.new(x, y, 'S')
+    when 'S'
+      Position.new(x, y, 'W')
+    when 'W'
+      Position.new(x, y, 'N')
     end
   end
 
