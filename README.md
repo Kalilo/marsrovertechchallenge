@@ -11,7 +11,7 @@ The application was written using ruby 2.6, although it should work for most rub
 
 * The program will read any amount of rovers from the provided input,
 although it does assume that rovers cannot occupy the same coordinates,
-thus rovers can not bump into eachother, or load on top of each other.
+thus rovers can not bump into each other, or load on top of each other.
 
 * A valid map is at least of a size 2x2, and has no specified max size.
 This program should be able to handle massive maps, although it has not been intended for such, nor tested for such.
@@ -20,9 +20,9 @@ This program should be able to handle massive maps, although it has not been int
 
 * Rovers can not travel out of bounds
 
-## Dependacies
+## Dependancies
 
-Install dependacies by running:
+Install dependancies by running:
 ```
 bundle
 ```
@@ -61,3 +61,17 @@ Run options: --seed 13823
 Finished in 0.004672s, 4494.8628 runs/s, 32748.2864 assertions/s.
 21 runs, 153 assertions, 0 failures, 0 errors, 0 skips
 ```
+
+## The Code
+
+The code has been written with two distinct use cases in mind. Some of the files have been
+created with the intention of using them as library functions, where as the rest of the files
+have been created with the intension of having extended features.
+
+The Library functions have the most extensive test coverage, as they are expected to have to
+behave in unintended usage. The IO managers have the worst test coverage as I was battling to
+decide on how to appropriately test them, and thus manually tested them rather than
+automatically.
+
+The program file was written in such a way as to add on an interactive mode, although I eventually
+decided that it would make the program too different from the requirements.
