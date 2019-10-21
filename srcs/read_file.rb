@@ -4,7 +4,7 @@ require 'rover'
 require 'position'
 require 'command'
 
-class ReadFileInput
+class ReadFile
   attr_accessor :file_name
 
   def initialize(file_name = nil)

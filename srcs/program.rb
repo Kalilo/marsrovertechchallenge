@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'read_file_input'
+require 'read_file'
 require 'map'
 
 class Program
@@ -45,7 +45,7 @@ class Program
   end
 
   def load_file(file = @options[:file])
-    load_map(ReadFileInput.new(file).read_file)
+    load_map(ReadFile.new(file).read_file)
   end
 
   def load_map(map_data)
