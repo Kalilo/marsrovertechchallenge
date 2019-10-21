@@ -9,27 +9,6 @@ class Program
     @options = options
   end
 
-  def main
-    run_file
-  end
-
-  # def run_interactive
-  # end
-
-  # def add_rover
-  #   loop do
-  #     print 'Enter rover position (x y direction): '
-  #   end
-  # end
-
-  # def get_map_size
-  #   loop do
-  #     print 'Enter map size (x y): '
-  #     mapsize = gets.chomp.split(' ').map { |k| k.to_i } rescue { puts 'invalid mapsize provided' && next }
-  #     return mapsize
-  #   end
-  # end
-
   def run_file(file = @options[:file])
     load_file
     print_map('Starting Map:') if @options[:map] || @options[:verbose]
