@@ -55,12 +55,12 @@ class ReadFileInput
   def read_position
     pos_arr = @file.readline.chomp.split(' ')
     invalid_input_file if pos_arr.size != 3
-    pos = Position.new(pos_arr[0].to_i, pos_arr[1].to_i, pos_arr[2])
+    Position.new(pos_arr[0].to_i, pos_arr[1].to_i, pos_arr[2])
   end
 
   def read_commands
     c_arr = @file.readline.chomp.split('')
-    commands = c_arr.map { |c| Command.new(c) }
+    c_arr.map { |c| Command.new(c) }
   end
 
   private

@@ -5,12 +5,12 @@ class Position
 
   VALID_DIRECTIONS = %w[N S E W].freeze
 
-  def initialize(x, y, direction)
-    validate_coordinate(x)
-    validate_coordinate(y)
+  def initialize(x_coord, y_coord, direction)
+    validate_coordinate(x_coord)
+    validate_coordinate(y_coord)
     validate_direction(direction)
-    @x = x
-    @y = y
+    @x = x_coord
+    @y = y_coord
     @direction = direction
   end
 
@@ -66,12 +66,12 @@ class Position
     end
   end
 
-  def same_coords?(pos)
-    @x == pos.x && @y == pos.y
+  def same_coords?(other)
+    @x == other.x && @y == other.y
   end
 
-  def ==(pos)
-    @x == pos.x && @y == pos.y && @direction == pos.direction
+  def ==(other)
+    @x == other.x && @y == other.y && @direction == other.direction
   end
 
   def self.rand_position(direction = rand_direction, max = 100, min = 0)

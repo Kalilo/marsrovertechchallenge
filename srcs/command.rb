@@ -5,8 +5,8 @@ class Command
 
   VALID_COMMANDS = %w[M L R].freeze
 
-  def initialize(c)
-    self.command = c
+  def initialize(char)
+    self.command = char
   end
 
   def self.rand_command
@@ -21,9 +21,9 @@ class Command
     to_s
   end
 
-  def command=(c)
-    raise 'invalid command' unless VALID_COMMANDS.include?(c)
+  def command=(char)
+    raise 'invalid command' unless VALID_COMMANDS.include?(char)
 
-    @command = c
+    @command = char
   end
 end
