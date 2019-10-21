@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require './srcs/command.rb'
+require 'command'
 
 class CommandTest < Minitest::Test
   def test_invalid_commands

@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require './srcs/position.rb'
+require 'position'
 
 class PositionTest < Minitest::Test
   def test_invalid_directions

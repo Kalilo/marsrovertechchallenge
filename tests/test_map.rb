@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require './srcs/map.rb'
+require 'map'
 
 class MapTest < Minitest::Test
   def test_initialize

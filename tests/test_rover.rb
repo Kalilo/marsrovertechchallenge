@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require './srcs/rover.rb'
+require 'rover'
 
 class RoverTest < Minitest::Test
 
