@@ -101,7 +101,7 @@ class Position
   end
 
   def validate_coordinate(coordinate_value)
-    raise "invalid coordinate: #{coordinate_value}" unless coordinate_value.is_a?(Integer) # && (coordinate_value >= 0)
+    raise "invalid coordinate: #{coordinate_value}" unless coordinate_value.is_a?(Integer)
   end
 
   def validate_direction(direction)
