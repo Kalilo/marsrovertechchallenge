@@ -11,7 +11,7 @@ class ReadFile
     @file_name = file_name
   end
 
-  def read_file
+  def read
     file = {}
     open_file
     file[:size] = read_map_size

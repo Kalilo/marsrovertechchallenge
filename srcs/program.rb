@@ -45,7 +45,7 @@ class Program
   end
 
   def load_file(file = @options[:file])
-    load_map(ReadFile.new(file).read_file)
+    load_map(ReadFile.new(file).read)
   end
 
   def load_map(map_data)
