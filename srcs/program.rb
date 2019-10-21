@@ -22,7 +22,7 @@ class Program
   def run
     @map.rovers.each do |rover|
       loop do
-        break unless rover.has_next_command?
+        break unless rover.next_command?
 
         begin
           puts "running #{rover.commands.first} on rover #{rover}" if @options[:verbose]
@@ -41,7 +41,7 @@ class Program
   end
 
   def last_command?(rover)
-    !rover.has_next_command? && @map.rovers.last == rover
+    !rover.next_command? && @map.rovers.last == rover
   end
 
   def load_file(file = @options[:file])

@@ -27,7 +27,7 @@ class Rover
     end
   end
 
-  def has_next_command?
+  def next_command?
     @commands.any?
   end
 
